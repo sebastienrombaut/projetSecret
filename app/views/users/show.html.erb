@@ -1,0 +1,6 @@
+<h1>Ici tu vois le gentil Utilisateur <%=@user.id%></h1>
+<p>Son email ✉️    <%= @user.email %></p>
+<p>Son mdp 🔐, (<%= @user.password_digest %>) héhé non, c'est privé ça ! </p>
+
+<p><%= link_to "Go index", users_index_path, class: "btn btn-info" %></p>
+

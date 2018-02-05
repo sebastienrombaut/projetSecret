@@ -1,0 +1,25 @@
+<h1>Index des gentils Utilisateurs :)</h1>
+
+	<table>
+  	<tr>
+  	  <th>ID du user  </th>
+   	  <th>Email  </th>
+   
+  	</tr>
+ 
+  	<% @users.each do |user| %>
+    <tr>
+	  <td><%= user.id %></td>
+      <td><%= user.email %></td>
+      
+      <td><%= link_to 'Editer', edit_user_path(user) %></td>
+
+      <td><%= link_to 'Supprimer', user_path(user),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %>
+    </table>
+</br>
+
+    <%= link_to "Tu veux t'inscrire aussi ?", new_user_path, class: "btn btn-lg btn-primary" %>
