@@ -4,7 +4,7 @@
   <%= label_tag 'Email :' %>
   <%= f.email_field :email %>
   <%= label_tag 'Mot de passe :' %>
-  <%= f.text_field :password %>
+  <%= f.password_field :password %>
   <%= f.submit "Créer" %>
 
   <% if @user.errors.any? %>

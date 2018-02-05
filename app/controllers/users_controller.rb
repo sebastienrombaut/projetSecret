@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   def new
   	@user = User.new
   end
@@ -11,10 +12,14 @@ class UsersController < ApplicationController
 		else
 		  render 'new'
 		end
-	end
+  end
 
   def show
+  	unless logged_in? 
+  		redirect_to new_user_path
+  	else
   	@user = User.find(params[:id])
+    end
   end
 
   def edit
@@ -33,13 +38,13 @@ class UsersController < ApplicationController
 			render 'edit'
 		end
 
-	end
+  end
 
-	def destroy
-		@user = User.find(params[:id])
-		@user.destroy
-		redirect_to users_path
-	end
+  def destroy
+	@user = User.find(params[:id])
+	@user.destroy
+	redirect_to users_path
+  end
 
   private 
 
